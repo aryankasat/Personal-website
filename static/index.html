@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aryan Kasat - AI/ML Engineer. Specializing in Generative AI systems, LLMs, and constitutional AI.">
+  <title>Aryan Kasat | AI/ML Engineer</title>
+  
+  <!-- Fonts (Inter Sans-Serif & Fira Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Global Loader -->
+  <div id="global-loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Interactive Kinetic Network Canvas Background -->
+  <canvas id="kinetic-canvas"></canvas>
+
+  <!-- Sticky Top Navigation Bar -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#details-section" class="nav-link-btn">Details</a>
+      <a href="#experience-section" class="nav-link-btn">Experience</a>
+      <a href="#blogs-section" class="nav-link-btn">Blogs</a>
+      <a href="#projects-section" class="nav-link-btn">Projects</a>
+      <a href="#papers-section" class="nav-link-btn">Papers</a>
+      <a href="#certifications-section" class="nav-link-btn">Certifications</a>
+      <a href="#system-designs-section" class="nav-link-btn">System Designs</a>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <!-- 1. Name Section -->
+    <header id="name-section" class="section name-header">
+      <div class="name-text-container">
+        <h1 id="user-name">Aryan Kasat</h1>
+        <p id="user-title" class="user-title">AI/ML Engineer | Generative AI Systems</p>
+        <p id="user-tagline" class="user-tagline">Building Scalable GenAI Systems & Constitutional AI for Enterprise</p>
+      </div>
+      <div class="name-image-container">
+        <img src="profile.jpg" alt="Aryan Kasat" class="profile-photo">
+      </div>
+    </header>
+
+    <!-- 2. Details Section -->
+    <section id="details-section" class="section">
+      <h2 class="section-title">Details</h2>
+      <div class="details-grid">
+        <div class="details-bio">
+          <p id="about-summary">Loading bio details...</p>
+        </div>
+        <div class="details-contact">
+          <div class="contact-row">
+            <span class="contact-label">Location</span>
+            <span id="contact-location" class="contact-value">-</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Email</span>
+            <span class="contact-value"><a id="contact-email" href="mailto:aryankasat@outlook.com">aryankasat@outlook.com</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Phone</span>
+            <span id="contact-phone" class="contact-value">-</span>
+          </div>
+          <div class="social-links-row" id="social-links">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Experience Section -->
+    <section id="experience-section" class="section">
+      <h2 class="section-title">Experience</h2>
+      <div id="experience-list" class="list-container">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 4. Blogs Section -->
+    <section id="blogs-section" class="section">
+      <h2 class="section-title">Blogs</h2>
+      <div id="blogs-list" class="articles-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 5. Projects Section -->
+    <section id="projects-section" class="section">
+      <h2 class="section-title">Projects</h2>
+      <div id="projects-list" class="projects-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 6. Papers Section -->
+    <section id="papers-section" class="section">
+      <h2 class="section-title">Papers</h2>
+      <div id="papers-list" class="papers-list">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 7. Certifications Section -->
+    <section id="certifications-section" class="section">
+      <h2 class="section-title">Certifications</h2>
+      <div id="certifications-list" class="certifications-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- 8. System Design Articles Section -->
+    <section id="system-designs-section" class="section">
+      <h2 class="section-title">System Design Articles</h2>
+      <div id="system-designs-list" class="articles-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Global Modal for Details/Full Article views -->
+  <div id="global-modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+      <div class="modal-content" id="modal-body-content">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Aryan Kasat. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script type="module" src="index.js"></script>
+</body>
+</html>

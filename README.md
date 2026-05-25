@@ -170,10 +170,3 @@ Below are the primary REST API routes registered under the `/api` prefix:
 | **GET** | `/api/system-designs` | Lists all system designs |
 | **GET** | `/api/system-designs/{design_id}`| Fetches full markdown content for a specific system design |
 | **POST** | `/api/contact` | Submits a contact inquiry form (validates fields and sends SMTP email) |
-| **POST** | `/upload-image` | Uploads an image to the local `uploads/` directory |
-
----
-
-## ⚖️ License
-
-Distributed under the MIT License. See [LICENSE](file:///Users/aryankasat/Documents/Aryan/Codes/Personal-website/LICENSE) for more information.

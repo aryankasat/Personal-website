@@ -19,7 +19,7 @@
       padding: 40px 0;
     }
     .article-container {
-      max-width: 760px;
+      max-width: 960px;
       margin: 0 auto;
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
@@ -129,15 +129,22 @@
         // Set Page Title
         document.title = `${article.title} | Aryan Kasat`;
 
+        let content = article.content || '';
+        // If content starts with H1 title, strip it to prevent duplicate title rendering
+        if (content.startsWith('# ')) {
+          const firstNewLine = content.indexOf('\n');
+          if (firstNewLine !== -1) {
+            content = content.substring(firstNewLine).trim();
+          }
+        }
+
         // Render HTML
         contentContainer.innerHTML = `
           <div class="article-header">
-            <span class="article-category-badge">${article.category}</span>
             <h1 class="article-title">${article.title}</h1>
-            <div class="article-meta-info">${article.date} • ${article.readTime || '5 min read'}</div>
           </div>
           <div class="markdown-body">
-            ${parseMarkdown(article.content)}
+            ${parseMarkdown(content)}
           </div>
         `;
       } catch (error) {

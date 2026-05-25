@@ -162,7 +162,7 @@ function renderBlogsSection(blogs) {
       <h3>${blog.title}</h3>
       <p class="article-summary-text">${blog.summary}</p>
       <div class="article-card-footer">
-        <div class="article-read-btn">Read Article ↗</div>
+        <div class="article-read-btn">Read Blog ↗</div>
         <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
       </div>
     </div>
@@ -253,7 +253,7 @@ function renderSystemDesignsSection(systemDesigns) {
       <h3>${design.title}</h3>
       <p class="article-summary-text">${design.summary}</p>
       <div class="article-card-footer">
-        <div class="article-read-btn">Read Layout ↗</div>
+        <div class="article-read-btn">Read Article ↗</div>
         <span class="article-meta-date">${design.readTime || '5 min read'}</span>
       </div>
     </div>

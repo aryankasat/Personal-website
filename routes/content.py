@@ -1,24 +1,37 @@
 from fastapi import APIRouter, HTTPException, Path
 import config
+import re
 
 router = APIRouter()
+
+def slugify(text: str) -> str:
+    text = text.lower()
+    text = re.sub(r'[^a-z0-9\s-]', '', text)
+    text = re.sub(r'[\s-]+', '-', text)
+    return text.strip('-')
 
 @router.get("/blogs")
 async def get_blogs():
     try:
         data = config.load_json_data("blogs.json")
-        # Return summary listing (excluding large full contents if we want, or simple list)
+        for b in data:
+            b["slug"] = slugify(b.get("title", ""))
         return {"blogs": data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load blogs: {str(e)}")
 
-@router.get("/blogs/{blog_id}")
-async def get_blog_by_id(blog_id: int = Path(..., title="The ID of the blog to get")):
+@router.get("/blogs/{identifier}")
+async def get_blog_by_id(identifier: str = Path(..., title="The ID or slug of the blog to get")):
     try:
         data = config.load_json_data("blogs.json")
-        blog = next((b for b in data if b.get("id") == blog_id), None)
+        blog = None
+        for b in data:
+            if slugify(b.get("title", "")) == identifier or (identifier.isdigit() and b.get("id") == int(identifier)):
+                blog = b
+                break
         if not blog:
             raise HTTPException(status_code=404, detail="Blog article not found")
+        blog["slug"] = slugify(blog.get("title", ""))
         return blog
     except HTTPException:
         raise
@@ -29,17 +42,24 @@ async def get_blog_by_id(blog_id: int = Path(..., title="The ID of the blog to g
 async def get_system_designs():
     try:
         data = config.load_json_data("system_designs.json")
+        for d in data:
+            d["slug"] = slugify(d.get("title", ""))
         return {"system_designs": data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load system designs: {str(e)}")
 
-@router.get("/system-designs/{design_id}")
-async def get_system_design_by_id(design_id: int = Path(..., title="The ID of the system design to get")):
+@router.get("/system-designs/{identifier}")
+async def get_system_design_by_id(identifier: str = Path(..., title="The ID or slug of the system design to get")):
     try:
         data = config.load_json_data("system_designs.json")
-        design = next((d for d in data if d.get("id") == design_id), None)
+        design = None
+        for d in data:
+            if slugify(d.get("title", "")) == identifier or (identifier.isdigit() and d.get("id") == int(identifier)):
+                design = d
+                break
         if not design:
             raise HTTPException(status_code=404, detail="System design article not found")
+        design["slug"] = slugify(design.get("title", ""))
         return design
     except HTTPException:
         raise

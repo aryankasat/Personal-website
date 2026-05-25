@@ -144,7 +144,7 @@ function renderBlogsSection(blogs) {
   if (!container || !blogs) return;
   
   container.innerHTML = blogs.map(blog => `
-    <div class="article-card" data-id="${blog.id}" data-type="blog">
+    <div class="article-card" data-id="${blog.slug}" data-type="blog">
       <div class="article-card-media">
         <div class="article-media-placeholder">
           <svg viewBox="0 0 24 24">
@@ -239,7 +239,7 @@ function renderSystemDesignsSection(systemDesigns) {
   if (!container || !systemDesigns) return;
   
   container.innerHTML = systemDesigns.map(design => `
-    <div class="article-card" data-id="${design.id}" data-type="design">
+    <div class="article-card" data-id="${design.slug}" data-type="design">
       <div class="article-card-media">
         <div class="article-media-placeholder">
           <svg viewBox="0 0 24 24">

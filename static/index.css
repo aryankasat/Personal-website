@@ -506,6 +506,7 @@ a:hover {
 .article-meta-date {
   color: var(--text-muted);
   font-family: var(--font-mono);
+  font-size: 11px;
 }
 
 .article-card h3 {
@@ -533,7 +534,6 @@ a:hover {
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-top: auto;
   display: flex;
   align-items: center;
   transition: color var(--transition-speed) ease;
@@ -542,6 +542,13 @@ a:hover {
 .article-card:hover .article-read-btn {
   color: var(--text-primary);
   text-decoration: underline;
+}
+
+.article-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
 }
 
 /* Card Media/Icon Placeholder space */

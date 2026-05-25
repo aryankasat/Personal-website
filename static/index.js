@@ -159,12 +159,12 @@ function renderBlogsSection(blogs) {
           <span>Image / Icon Space</span>
         </div>
       </div>
-      <div class="article-card-header">
-        <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
-      </div>
       <h3>${blog.title}</h3>
       <p class="article-summary-text">${blog.summary}</p>
-      <div class="article-read-btn">Read Article ↗</div>
+      <div class="article-card-footer">
+        <div class="article-read-btn">Read Article ↗</div>
+        <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
+      </div>
     </div>
   `).join('');
 
@@ -250,12 +250,12 @@ function renderSystemDesignsSection(systemDesigns) {
           <span>Architecture / Diagram Space</span>
         </div>
       </div>
-      <div class="article-card-header">
-        <span class="article-meta-date">${design.readTime || '5 min read'}</span>
-      </div>
       <h3>${design.title}</h3>
       <p class="article-summary-text">${design.summary}</p>
-      <div class="article-read-btn">Read Layout ↗</div>
+      <div class="article-card-footer">
+        <div class="article-read-btn">Read Layout ↗</div>
+        <span class="article-meta-date">${design.readTime || '5 min read'}</span>
+      </div>
     </div>
   `).join('');
 

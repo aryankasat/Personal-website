@@ -130,11 +130,12 @@ function renderExperienceSection(experience) {
     
     return `
       <div class="exp-item">
-        <div class="exp-date">${dateRange}</div>
+        <div class="exp-date">
+          <div class="exp-company-name">${exp.company}</div>
+          <div class="exp-date-range">${dateRange}</div>
+        </div>
         <div class="exp-content">
           <h3>${exp.position}</h3>
-          <span class="exp-company">${exp.company}</span>
-          <p class="exp-desc">${exp.description}</p>
           ${highlightsHTML ? `<ul class="exp-highlights">${highlightsHTML}</ul>` : ''}
         </div>
       </div>
@@ -206,15 +207,10 @@ function renderPapersSection(publications) {
   if (!container || !publications) return;
   
   container.innerHTML = publications.map(pub => {
-    const formattedAuthors = pub.authors
-      ? pub.authors.map(a => a.includes('Aryan Kasat') ? `<span class="author-highlight">${a}</span>` : a).join(', ')
-      : '';
-    
     return `
       <div class="paper-item">
         <span class="paper-venue-badge">${pub.venue}</span>
         <h3>${pub.title}</h3>
-        <div class="paper-authors">By ${formattedAuthors}</div>
         <p class="paper-desc">${pub.description}</p>
         ${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight:600; display:inline-block; margin-top:8px;">Read Document ↗</a>` : ''}
       </div>

@@ -2,7 +2,7 @@
 
 :root {
   /* Universal Sans-Serif Stack (Inter first) */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: 'Aptos', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-headings: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'Fira Code', monospace;
 
@@ -155,7 +155,7 @@ body {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 56px 64px;
+  padding: 36px 64px;
   margin-bottom: 40px;
   box-shadow: var(--shadow-card);
   position: relative;
@@ -181,7 +181,7 @@ body {
 /* 1. Name Section Customizer */
 .name-header {
   border-top: none;
-  padding: 72px 64px;
+  padding: 48px 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -404,11 +404,23 @@ a:hover {
 
 .exp-date {
   font-family: var(--font-primary);
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--color-accent);
   border-right: 2px solid var(--border-color);
   padding-right: 24px;
+}
+
+.exp-company-name {
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 15.5px;
+  line-height: 1.35;
+}
+
+.exp-date-range {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 6px;
+  display: block;
 }
 
 .exp-content h3 {
@@ -416,14 +428,6 @@ a:hover {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 4px;
-}
-
-.exp-company {
-  font-weight: 600;
-  color: var(--color-secondary);
-  font-size: 15px;
-  margin-bottom: 12px;
-  display: block;
 }
 
 .exp-desc {
@@ -436,7 +440,7 @@ a:hover {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;
   padding-left: 2px;
 }
 
@@ -445,6 +449,7 @@ a:hover {
   color: var(--text-secondary);
   position: relative;
   padding-left: 22px;
+  line-height: 1.45;
 }
 
 .exp-highlights li::before {
@@ -588,7 +593,7 @@ a:hover {
 /* 5. Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
 }
 

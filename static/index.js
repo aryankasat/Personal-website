@@ -181,23 +181,25 @@ function renderProjectsSection(projects) {
   const container = document.getElementById('projects-list');
   if (!container || !projects) return;
   
-  container.innerHTML = projects.map(proj => {
-    const techTags = proj.technologies ? proj.technologies.map(t => `<span class="tech-badge">${t}</span>`).join('') : '';
-    return `
-      <div class="proj-card" data-id="${proj.id}">
-        <span class="proj-category">${proj.category.replace(/-/g, ' ')}</span>
-        <h3>${proj.title}</h3>
-        <p class="proj-desc">${proj.description}</p>
-        <div class="proj-techs">${techTags}</div>
-      </div>
-    `;
-  }).join('');
+  container.innerHTML = projects.map(proj => `
+    <div class="proj-card" data-id="${proj.id}">
+      <h3>${proj.title}</h3>
+      <p class="proj-desc">${proj.description}</p>
+      ${proj.link ? `<a href="${proj.link}" target="_blank" rel="noopener noreferrer" class="proj-link">View Repository ↗</a>` : ''}
+    </div>
+  `).join('');
 
   container.querySelectorAll('.proj-card').forEach(card => {
     card.addEventListener('click', () => {
       const id = parseInt(card.getAttribute('data-id'));
       const project = projects.find(p => p.id === id);
       if (project) openProjectModal(project);
+    });
+  });
+
+  container.querySelectorAll('.proj-card .proj-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.stopPropagation();
     });
   });
 }
@@ -299,12 +301,10 @@ function setupModalEvents() {
 }
 
 function openProjectModal(project) {
-  const techTags = project.technologies ? project.technologies.map(t => `<span class="tech-badge">${t}</span>`).join('') : '';
   const highlights = project.highlights ? project.highlights.map(h => `<li>${h}</li>`).join('') : '';
   
   const formattedHTML = `
     <div style="margin-bottom: 24px; border-bottom: 1.5px solid var(--border-color); padding-bottom: 16px;">
-      <span style="font-size: 11px; font-weight:700; text-transform:uppercase; color:var(--text-muted);">${project.category.replace(/-/g, ' ')}</span>
       <h2 style="font-size:24px; margin: 4px 0;">${project.title}</h2>
     </div>
     <div class="markdown-body">
@@ -313,8 +313,6 @@ function openProjectModal(project) {
         <h3 style="font-size:16px; margin:20px 0 10px 0;">Key Accomplishments</h3>
         <ul>${highlights}</ul>
       ` : ''}
-      <h3 style="font-size:16px; margin:20px 0 10px 0;">Technologies Stack</h3>
-      <div class="proj-techs">${techTags}</div>
       ${project.link ? `
         <div style="margin-top:24px;">
           <a href="${project.link}" target="_blank" rel="noopener noreferrer" style="font-size:14px; font-weight:700;">View Code Repository ↗</a>

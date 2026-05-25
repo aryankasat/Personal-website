@@ -1,11 +1,5 @@
 # 🌌 Aryan Kasat - Personal Website & Portfolio
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
-[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
 Welcome to the repository of my personal portfolio and website. This project serves as a unified digital portal showcasing my professional experiences, engineering projects, research publications, technical blog posts, and system design case studies. 
 
 The application is built with a high-performance **FastAPI** backend in Python serving static resources and dynamic API endpoints, and a premium **Vanilla HTML5/CSS3/JS** frontend designed with modern, clean, and responsive aesthetics.

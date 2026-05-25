@@ -145,6 +145,16 @@ function renderBlogsSection(blogs) {
   
   container.innerHTML = blogs.map(blog => `
     <div class="article-card" data-id="${blog.id}" data-type="blog">
+      <div class="article-card-media">
+        <div class="article-media-placeholder">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>Image / Icon Space</span>
+        </div>
+      </div>
       <div class="article-card-header">
         <span class="article-category">${blog.category}</span>
         <span class="article-meta-date">${blog.date} • ${blog.readTime || '5 min read'}</span>
@@ -230,6 +240,16 @@ function renderSystemDesignsSection(systemDesigns) {
   
   container.innerHTML = systemDesigns.map(design => `
     <div class="article-card" data-id="${design.id}" data-type="design">
+      <div class="article-card-media">
+        <div class="article-media-placeholder">
+          <svg viewBox="0 0 24 24">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span>Architecture / Diagram Space</span>
+        </div>
+      </div>
       <div class="article-card-header">
         <span class="article-category">${design.category}</span>
         <span class="article-meta-date">${design.date} • ${design.readTime || '5 min read'}</span>

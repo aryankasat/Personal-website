@@ -11,13 +11,13 @@ async def get_profile():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load profile data: {str(e)}")
 
-@router.get("/about")
-async def get_about():
+@router.get("/overview")
+async def get_overview():
     try:
         data = config.load_json_data("profile.json")
-        return data.get("about", {})
+        return data.get("overview", {})
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to load about data: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to load overview data: {str(e)}")
 
 @router.get("/education")
 async def get_education():

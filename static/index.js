@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Concurrently load all resources
   const [
     profile,
-    about,
+    overview,
     experienceData,
     projectsData,
     publicationsData,
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     systemDesignsData
   ] = await Promise.all([
     fetchAPI('/profile'),
-    fetchAPI('/about'),
+    fetchAPI('/overview'),
     fetchAPI('/experience'),
     fetchAPI('/projects'),
     fetchAPI('/publications'),
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Render components
   renderNameSection(profile);
-  renderDetailsSection(about, profile);
+  renderDetailsSection(overview, profile);
   renderExperienceSection(experienceData?.experience);
   renderBlogsSection(blogsData?.blogs);
   renderProjectsSection(projectsData?.projects);
@@ -86,19 +86,23 @@ function renderNameSection(profile) {
   if (taglineEl) taglineEl.textContent = profile.tagline;
 }
 
-function renderDetailsSection(about, profile) {
-  if (about && about.summary) {
+function renderDetailsSection(overview, profile) {
+  if (overview && overview.summary) {
     const summaryEl = document.getElementById('about-summary');
-    if (summaryEl) summaryEl.textContent = about.summary;
+    if (summaryEl) summaryEl.textContent = overview.summary;
   }
   
   if (profile) {
-    const locEl = document.getElementById('contact-location');
+    const linkedinEl = document.getElementById('contact-linkedin');
     const emailEl = document.getElementById('contact-email');
     const phoneEl = document.getElementById('contact-phone');
     const socialEl = document.getElementById('social-links');
     
-    if (locEl) locEl.textContent = profile.location;
+    if (linkedinEl && profile.socials && profile.socials.linkedin) {
+      linkedinEl.href = profile.socials.linkedin;
+      linkedinEl.textContent = profile.socials.linkedin;
+      linkedinEl.title = profile.socials.linkedin;
+    }
     if (emailEl) {
       emailEl.textContent = profile.email;
       emailEl.href = `mailto:${profile.email}`;
@@ -109,7 +113,6 @@ function renderDetailsSection(about, profile) {
       const s = profile.socials;
       socialEl.innerHTML = `
         ${s.github ? `<a href="${s.github}" target="_blank" rel="noopener noreferrer" title="GitHub">${getSVG('github')}</a>` : ''}
-        ${s.linkedin ? `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" title="LinkedIn">${getSVG('linkedin')}</a>` : ''}
         ${s.scholar ? `<a href="${s.scholar}" target="_blank" rel="noopener noreferrer" title="Google Scholar">${getSVG('scholar')}</a>` : ''}
         ${s.leetcode ? `<a href="${s.leetcode}" target="_blank" rel="noopener noreferrer" title="LeetCode">${getSVG('leetcode')}</a>` : ''}
       `;

@@ -335,6 +335,19 @@ a:hover {
 .contact-value {
   color: var(--text-primary);
   font-weight: 600;
+  text-align: right;
+  max-width: 75%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-value a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .social-links-row {

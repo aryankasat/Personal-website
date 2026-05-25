@@ -465,7 +465,7 @@ a:hover {
 /* 4 & 8. Articles Cards Grid */
 .articles-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
 }
 
@@ -498,7 +498,7 @@ a:hover {
 }
 
 .article-category {
-  color: var(--color-secondary);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -518,7 +518,7 @@ a:hover {
 }
 
 .article-card:hover h3 {
-  color: var(--color-accent);
+  color: var(--text-primary);
 }
 
 .article-summary-text {
@@ -530,12 +530,18 @@ a:hover {
 .article-read-btn {
   font-size: 12px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: auto;
   display: flex;
   align-items: center;
+  transition: color var(--transition-speed) ease;
+}
+
+.article-card:hover .article-read-btn {
+  color: var(--text-primary);
+  text-decoration: underline;
 }
 
 /* Card Media/Icon Placeholder space */

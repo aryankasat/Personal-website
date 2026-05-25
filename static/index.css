@@ -155,7 +155,7 @@ body {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 36px 64px;
+  padding: 24px 64px 36px 64px;
   margin-bottom: 40px;
   box-shadow: var(--shadow-card);
   position: relative;
@@ -256,6 +256,7 @@ h2.section-title {
   text-transform: capitalize;
   letter-spacing: -0.01em;
   color: var(--text-primary);
+  margin-top: 0;
   margin-bottom: 36px;
   font-weight: 700;
   border-bottom: 1.5px solid var(--border-color);
@@ -618,7 +619,7 @@ a:hover {
 
 .proj-card h3 {
   font-family: var(--font-headings);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.15;
   transition: color var(--transition-speed);
@@ -989,7 +990,7 @@ a:hover {
   }
   
   .section {
-    padding: 36px 24px;
+    padding: 24px 24px 36px 24px;
     margin-bottom: 24px;
   }
   

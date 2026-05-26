@@ -25,43 +25,44 @@
     {
       "id": 1,
       "company": "Tata Consultancy Services",
-      "position": "Engineer @ AI CoE",
-      "startDate": "2024-11",
+      "position": "Engineer @AI CoE",
+      "startDate": "Nov'24",
       "endDate": null,
       "current": true,
       "description": "Engineering large-scale language model systems and alignment frameworks for enterprise applications.",
       "highlights": [
-        "Developed a 1B-parameter education-focused foundational model with custom vocab compilation and tokenization.",
-        "Engineered an end-to-end multimodal LLM fine-tuning pipeline utilizing PyTorch and Nvidia Megatron scaling architectures.",
-        "Upgraded enterprise RAG pipelines to Agentic-RAG architectures featuring Model Context Protocol (MCP) integrations."
+        "Developed a 1B-parameter education-focused foundational model using DDP to double training speed, reducing student doubt resolution time by >50%, and achieving 2 times better performance over base models on MMLU and GQPA.",
+        "Engineered an end-to-end multimodal LLM fine-tuning pipeline (Llama 3.2, Gemma-3) for M&A and insurance claim processing, improving task accuracy and reducing manual effort, also got featured at the 2026 IndiaAI Impact Summit.",
+        "Upgraded naive RAG pipelines to Agentic-RAG with MCP integration, reducing hallucinations by ~60% and enabling safer, grounded enterprise customer support systems.",
+        "Orchestrated collaborative agent swarms via Agentic AI cards to automate corporate strategy tasks (SWOT analysis, governance evaluation), reducing analysis turnaround from days to hours.",
+        "Benchmarked document processing frameworks (LlamaParse, Azure/GCP Document AI, Mistral OCR) on complex financial documents, improving layout analysis accuracy by ~35% using Intersection over Union metric."
       ]
     },
     {
       "id": 2,
-      "company": "Visulon",
-      "position": "AI/ML Intern",
-      "startDate": "2023-06",
-      "endDate": "2023-08",
+      "company": "Visulon Inc.",
+      "position": "Machine Learning Intern",
+      "startDate": "June'23",
+      "endDate": "Aug'23",
       "current": false,
       "description": "Worked on computer vision and apparel intelligence systems for fashion cataloging.",
       "highlights": [
-        "Developed deep learning models for automated garment parsing and apparel attribute extraction.",
-        "Engineered layout segmentation pipelines using PyTorch to structure multi-layered catalog elements.",
-        "Accelerated automated label validation operations by 40% utilizing zero-shot classification methodologies."
+        "Integrated Visulon's Assortment Planner with a popularity-based algorithm for new users and a two-tower recommendation model for existing users for a 10K+ product catalog, achieving a ~0.65 NDGC@10 score during offline testing.",
+        "Reduced assortment curation time by 30% by developing an FP-Growth-based similar product recommendation engine.",
+        "Delivered end-to-end MVP in 2 months, resulting in successful deployment to beta users."
       ]
     },
     {
       "id": 3,
-      "company": "Indian Institute of Technology, Roorkee",
-      "position": "Research Intern",
-      "startDate": "2022-10",
-      "endDate": "2023-04",
+      "company": "Indian Institute of Technology (IIT), Roorkee",
+      "position": "Research Fellow",
+      "startDate": "Oct'22",
+      "endDate": "April'23",
       "current": false,
       "description": "Conducted research on the ethical evaluation and alignment strategies of Large Language Models.",
       "highlights": [
-        "Evaluated moral reasoning and cognitive processing behaviors across 13 major open and closed LLMs.",
-        "Curated a specialized evaluation dataset of 600+ complex moral dilemmas to test philosophical alignments.",
-        "Co-authored evaluations resulting in bias elimination frameworks targeted for speculative decoding setups."
+        "Developed a smart traffic management system using Deep Q-Networks algorithm, reducing wait times ~8%.",
+        "Optimized model training using experience replay and activation mechanisms, and validated performance using the Stable Baselines framework with SUMO-based traffic simulations involving 100+ vehicles."
       ]
     }
   ],
@@ -89,7 +90,14 @@
       "title": "Multi-Agent Logistics Enhancement System",
       "description": "Built a multi-agent logistics automation workflow coordinating operations.",
       "fullDescription": "Developed a distributed multi-agent system coordinating logistics, weather data collection, routing, and operational adjustments dynamically. Built using FastAPI and FAISS for semantic search on operational directives, integrating the Model Context Protocol (MCP) for tool execution and live Weather API updates.",
-      "technologies": ["FastAPI", "FAISS", "RAG", "MCP", "Weather API", "Langgraph"],
+      "technologies": [
+        "FastAPI",
+        "FAISS",
+        "RAG",
+        "MCP",
+        "Weather API",
+        "Langgraph"
+      ],
       "category": "agents",
       "link": "https://github.com/aryankasat/Multi-Agent-Logistics",
       "highlights": [
@@ -103,7 +111,13 @@
       "title": "AMBEDKAR Alignment Framework",
       "description": "Co-developed an SLM-LLM speculative decoding alignment framework.",
       "fullDescription": "Co-developed the AMBEDKAR framework, an SLM-LLM speculative decoding pipeline built to eliminate cognitive bias and optimize safety alignment. Used speculative alignment principles to maintain standard response distribution while minimizing safety training compute requirements.",
-      "technologies": ["PyTorch", "Nvidia Nemo", "Speculative Decoding", "Alignment", "Huggingface"],
+      "technologies": [
+        "PyTorch",
+        "Nvidia Nemo",
+        "Speculative Decoding",
+        "Alignment",
+        "Huggingface"
+      ],
       "category": "alignment",
       "link": "https://github.com/aryankasat/AMBEDKAR-Alignment",
       "highlights": [
@@ -117,7 +131,13 @@
       "title": "1B Foundational Model Pretraining Pipeline",
       "description": "Designed and engineered an end-to-end foundational pretraining setup.",
       "fullDescription": "Created a multi-node, distributed pretraining environment to build an educational-domain foundational model of 1B parameters. Configured model scaling settings, compiled customized tokenizers tailored for academic codebases, and handled high-throughput data loading modules.",
-      "technologies": ["PyTorch", "Nvidia Megatron", "Nvidia Nemo", "CUDA", "Docker"],
+      "technologies": [
+        "PyTorch",
+        "Nvidia Megatron",
+        "Nvidia Nemo",
+        "CUDA",
+        "Docker"
+      ],
       "category": "foundational-models",
       "link": "https://github.com/aryankasat/LLM-Pretraining",
       "highlights": [
@@ -131,7 +151,13 @@
       "title": "Enterprise Agentic-RAG MCP Platform",
       "description": "Upgraded enterprise naive retrieval networks to Agentic retrieval systems.",
       "fullDescription": "Upgraded enterprise document access pathways from naive semantic search to a dynamic agentic retrieval platform. Employed router agents executing custom query compilers, vector similarity lookups in ChromaDB, and document preprocessing via Azure Document Intelligence.",
-      "technologies": ["Langchain", "LLaMA-Index", "MCP", "ChromaDB", "Azure Document Intelligence"],
+      "technologies": [
+        "Langchain",
+        "LLaMA-Index",
+        "MCP",
+        "ChromaDB",
+        "Azure Document Intelligence"
+      ],
       "category": "rag",
       "link": "https://github.com/aryankasat/Agentic-RAG-MCP",
       "highlights": [
@@ -142,31 +168,79 @@
     }
   ],
   "skills": {
-    "deep_learning_frameworks": ["PyTorch", "Nvidia Megatron", "Nvidia Nemo", "TensorFlow", "CUDA"],
-    "llm_genai_tools": ["Langchain", "Langgraph", "Langsmith", "LLaMA-Index", "Huggingface", "vLLM", "OpenAI API", "Anthropic API"],
-    "vector_databases": ["FAISS", "ChromaDB", "Pinecone", "Qdrant"],
-    "deployment": ["FastAPI", "Streamlit", "Docker", "Kubernetes", "AWS", "GCP"],
-    "cloud_enterprise": ["Google ADK", "MCP", "Azure Document Intelligence", "MLflow", "Triton Inference Server"]
+    "deep_learning_frameworks": [
+      "PyTorch",
+      "Nvidia Megatron",
+      "Nvidia Nemo",
+      "TensorFlow",
+      "CUDA"
+    ],
+    "llm_genai_tools": [
+      "Langchain",
+      "Langgraph",
+      "Langsmith",
+      "LLaMA-Index",
+      "Huggingface",
+      "vLLM",
+      "OpenAI API",
+      "Anthropic API"
+    ],
+    "vector_databases": [
+      "FAISS",
+      "ChromaDB",
+      "Pinecone",
+      "Qdrant"
+    ],
+    "deployment": [
+      "FastAPI",
+      "Streamlit",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "GCP"
+    ],
+    "cloud_enterprise": [
+      "Google ADK",
+      "MCP",
+      "Azure Document Intelligence",
+      "MLflow",
+      "Triton Inference Server"
+    ]
   },
   "publications": [
     {
       "id": 1,
-      "title": "Reasoning or Rhetoric? An Empirical Analysis of Moral Reasoning Explanations in Large Language Models",
-      "venue": "International Conference on Learning Representations (ICLR)",
+      "title": "An Empirical Analysis of Moral Reasoning Explanations in LLMs",
+      "venue": "Accepted at ICLR'26",
       "publicationDate": "2026",
       "status": "Accepted",
-      "authors": ["Aryan Kasat", "et al."],
-      "description": "Analyzes the cognitive processing behaviors and moral reasoning quality in LLMs under complex philosophical constraints, demonstrating the gap between reasoning and superficial alignment rhetoric.",
-      "link": "https://openreview.net/forum?id=moral-reasoning-llms"
+      "authors": [
+        "Aryan Kasat",
+        "et al."
+      ],
+      "description": "Evaluated 13 LLMs on 600+ moral dilemmas, uncovering reward hacking and skewed post-conventional reasoning over Kohlberg development baseline.",
+      "highlights": [
+        "Evaluated 13 LLMs on 600+ moral dilemmas, uncovering reward hacking and skewed post-conventional reasoning over Kohlberg development baseline.",
+        "Statistically identified \"moral decoupling,\" in AI justifications against ethical actions for the dilemmas, exposing vulnerabilities in enterprise AI projects."
+      ],
+      "link": "https://arxiv.org/abs/2603.21854"
     },
     {
       "id": 2,
-      "title": "AMBEDKAR: A Multi-level Bias Elimination through a Decoding Approach with Knowledge Augmentation for Robust Constitutional Alignment of Language Models",
-      "venue": "arXiv:2509.02133",
-      "publicationDate": "2025",
-      "status": "Accepted",
-      "authors": ["Aryan Kasat", "et al."],
-      "description": "Introduces a novel multi-level decoding framework using knowledge augmentation for eliminating bias and aligning language models with constitutional constraints.",
+      "title": "AMBEDKAR: Bias Elimination Framework for LLM Alignment",
+      "venue": "Under Review at ACL ARR'26",
+      "publicationDate": "2026",
+      "status": "Under Review",
+      "authors": [
+        "et al.",
+        "Aryan Kasat",
+        "et al."
+      ],
+      "description": "Co-developed an SLM-LLM speculative decoding framework for real-time constitutional alignment without model retraining.",
+      "highlights": [
+        "Co-developed an SLM-LLM speculative decoding framework for real-time constitutional alignment without model retraining.",
+        "Validated on localized sociocultural datasets, achieving up to a 26.41% absolute reduction in demographic bias compared to baselines, proving its efficacy for safe AI deployment for use cases such as judicial summarization."
+      ],
       "link": "https://arxiv.org/abs/2509.02133"
     }
   ],

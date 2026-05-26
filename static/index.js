@@ -208,12 +208,16 @@ function renderPapersSection(publications) {
   if (!container || !publications) return;
   
   container.innerHTML = publications.map(pub => {
+    const highlightsHTML = pub.highlights 
+      ? `<ul class="paper-highlights">${pub.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` 
+      : `<p class="paper-desc">${pub.description}</p>`;
+      
     return `
       <div class="paper-item">
         <span class="paper-venue-badge">${pub.venue}</span>
         <h3>${pub.title}</h3>
-        <p class="paper-desc">${pub.description}</p>
-        ${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight:600; display:inline-block; margin-top:8px;">Read Document ↗</a>` : ''}
+        ${highlightsHTML}
+        ${pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight:600; display:inline-block; margin-top:8px;">Read Paper ↗</a>` : ''}
       </div>
     `;
   }).join('');

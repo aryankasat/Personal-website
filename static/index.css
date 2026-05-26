@@ -8,27 +8,35 @@
 
   /* Organic Sand-Paper Palette with Blue Accents */
   --bg-primary: #ffffff;
-  --bg-secondary: #f9f8f4;  /* Earthy Ivory Paper Background */
-  --bg-accent: #eef2f6;     /* Soft slate blue background tint */
-  
-  --text-primary: #1e293b;    /* Slate Deep Charcoal */
-  --text-secondary: #475569;  /* Slate slate */
-  --text-muted: #64748b;      /* Slate clay-gray */
-  
+  --bg-secondary: #f9f8f4;
+  /* Earthy Ivory Paper Background */
+  --bg-accent: #eef2f6;
+  /* Soft slate blue background tint */
+
+  --text-primary: #1e293b;
+  /* Slate Deep Charcoal */
+  --text-secondary: #475569;
+  /* Slate slate */
+  --text-muted: #64748b;
+  /* Slate clay-gray */
+
   /* Brand Accents (Blue theme) */
-  --color-accent: #1d4ed8;         /* Cobalt Blue */
+  --color-accent: #1d4ed8;
+  /* Cobalt Blue */
   --color-accent-light: rgba(29, 78, 216, 0.06);
-  --color-secondary: #0284c7;      /* Steel Blue */
+  --color-secondary: #0284c7;
+  /* Steel Blue */
   --color-secondary-light: rgba(2, 132, 199, 0.06);
-  
-  --border-color: #e2e8f0;    /* Soft Slate Border */
-  --success-color: #2d5a27;   
-  
+
+  --border-color: #e2e8f0;
+  /* Soft Slate Border */
+  --success-color: #2d5a27;
+
   --container-width: 1140px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --transition-speed: 0.2s;
-  
+
   /* Elegant paper-style micro shadows */
   --shadow-subtle: 0 2px 8px rgba(27, 24, 22, 0.02);
   --shadow-card: 0 4px 20px -2px rgba(27, 24, 22, 0.03), 0 2px 4px rgba(27, 24, 22, 0.02);
@@ -43,7 +51,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px; /* Offset for sticky nav */
+  scroll-padding-top: 85px;
+  /* Offset for sticky nav */
 }
 
 body {
@@ -71,14 +80,17 @@ body {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-secondary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #dcd6cd;
   border-radius: var(--radius-sm);
   border: 2px solid var(--bg-secondary);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
@@ -189,7 +201,8 @@ body {
 }
 
 .name-header::before {
-  height: 5px; /* Thicker accent line on hero header card */
+  height: 5px;
+  /* Thicker accent line on hero header card */
 }
 
 .name-text-container {
@@ -243,7 +256,10 @@ body {
   max-width: 800px;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-headings);
   font-weight: 700;
   color: var(--text-primary);
@@ -368,7 +384,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   transition: all var(--transition-speed) ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.01);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
 }
 
 .social-links-row a:hover {
@@ -740,8 +756,34 @@ a:hover {
 }
 
 .paper-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.paper-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 8px 0;
+  padding-left: 2px;
+}
+
+.paper-highlights li {
   font-size: 14.5px;
   color: var(--text-secondary);
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.45;
+}
+
+.paper-highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--color-accent);
+  font-size: 16px;
 }
 
 /* 7. Certifications Section */
@@ -822,7 +864,9 @@ a:hover {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Modal system */
@@ -901,7 +945,9 @@ a:hover {
   font-size: 15px;
 }
 
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
   font-family: var(--font-headings);
   font-weight: 700;
   margin-top: 24px;
@@ -909,16 +955,27 @@ a:hover {
   color: var(--text-primary);
 }
 
-.markdown-body h1 { font-size: 22px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
-.markdown-body h2 { font-size: 20px; }
-.markdown-body h3 { font-size: 16px; }
+.markdown-body h1 {
+  font-size: 22px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 6px;
+}
+
+.markdown-body h2 {
+  font-size: 20px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
 
 .markdown-body p {
   margin-bottom: 16px;
   color: var(--text-secondary);
 }
 
-.markdown-body ul, .markdown-body ol {
+.markdown-body ul,
+.markdown-body ol {
   margin-bottom: 16px;
   padding-left: 20px;
 }
@@ -989,57 +1046,57 @@ a:hover {
   body {
     padding-bottom: 40px;
   }
-  
+
   .main-nav {
     width: calc(100% - 32px);
     max-width: 100%;
     top: 10px;
     margin-bottom: 32px;
   }
-  
+
   .nav-container {
     justify-content: flex-start;
     padding: 0 8px;
   }
-  
+
   .section {
     padding: 24px 24px 36px 24px;
     margin-bottom: 24px;
   }
-  
+
   .name-header {
     padding: 48px 24px;
     flex-direction: column-reverse;
     gap: 24px;
     text-align: center;
   }
-  
+
   .name-header h1 {
     font-size: 34px;
   }
-  
+
   .profile-photo {
     width: 140px;
     height: 140px;
   }
-  
+
   .details-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  
+
   .exp-item {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-  
+
   .exp-date {
     border-right: none;
     border-left: 2px solid var(--border-color);
     padding-right: 0;
     padding-left: 12px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }

@@ -688,7 +688,7 @@ a:hover {
   font-weight: 600;
   color: var(--color-accent);
   text-decoration: none;
-  margin-top: 2px;
+  margin-top: auto;
   align-self: flex-start;
   transition: opacity var(--transition-speed);
 }

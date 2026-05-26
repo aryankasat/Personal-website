@@ -14,8 +14,8 @@ async def get_profile():
 @router.get("/overview")
 async def get_overview():
     try:
-        data = config.load_json_data("profile.json")
-        return data.get("overview", {})
+        data = config.load_json_data("overview.json")
+        return data
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load overview data: {str(e)}")
 
@@ -30,8 +30,8 @@ async def get_education():
 @router.get("/certifications")
 async def get_certifications():
     try:
-        data = config.load_json_data("profile.json")
-        return data.get("certifications", [])
+        data = config.load_json_data("certifications.json")
+        return data
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load certifications data: {str(e)}")
 

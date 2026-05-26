@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "company": "Tata Consultancy Services",
+    "position": "Engineer @AI CoE",
+    "startDate": "Nov'24",
+    "endDate": null,
+    "current": true,
+    "description": "Engineering large-scale language model systems and alignment frameworks for enterprise applications.",
+    "highlights": [
+      "Developed a 1B-parameter education-focused foundational model using DDP to double training speed, reducing student doubt resolution time by >50%, and achieving 2 times better performance over base models on MMLU and GQPA.",
+      "Engineered an end-to-end multimodal LLM fine-tuning pipeline (Llama 3.2, Gemma-3) for M&A and insurance claim processing, improving task accuracy and reducing manual effort, also got featured at the 2026 IndiaAI Impact Summit.",
+      "Upgraded naive RAG pipelines to Agentic-RAG with MCP integration, reducing hallucinations by ~60% and enabling safer, grounded enterprise customer support systems.",
+      "Orchestrated collaborative agent swarms via Agentic AI cards to automate corporate strategy tasks (SWOT analysis, governance evaluation), reducing analysis turnaround from days to hours.",
+      "Benchmarked document processing frameworks (LlamaParse, Azure/GCP Document AI, Mistral OCR) on complex financial documents, improving layout analysis accuracy by ~35% using Intersection over Union metric."
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Visulon Inc.",
+    "position": "Machine Learning Intern",
+    "startDate": "June'23",
+    "endDate": "Aug'23",
+    "current": false,
+    "description": "Worked on computer vision and apparel intelligence systems for fashion cataloging.",
+    "highlights": [
+      "Integrated Visulon's Assortment Planner with a popularity-based algorithm for new users and a two-tower recommendation model for existing users for a 10K+ product catalog, achieving a ~0.65 NDGC@10 score during offline testing.",
+      "Reduced assortment curation time by 30% by developing an FP-Growth-based similar product recommendation engine.",
+      "Delivered end-to-end MVP in 2 months, resulting in successful deployment to beta users."
+    ]
+  },
+  {
+    "id": 3,
+    "company": "Indian Institute of Technology (IIT), Roorkee",
+    "position": "Research Fellow",
+    "startDate": "Oct'22",
+    "endDate": "April'23",
+    "current": false,
+    "description": "Conducted research on the ethical evaluation and alignment strategies of Large Language Models.",
+    "highlights": [
+      "Developed a smart traffic management system using Deep Q-Networks algorithm, reducing wait times ~8%.",
+      "Optimized model training using experience replay and activation mechanisms, and validated performance using the Stable Baselines framework with SUMO-based traffic simulations involving 100+ vehicles."
+    ]
+  }
+]

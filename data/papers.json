@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "An Empirical Analysis of Moral Reasoning Explanations in LLMs",
+    "venue": "Accepted at ICLR'26",
+    "publicationDate": "2026",
+    "status": "Accepted",
+    "authors": [
+      "Aryan Kasat",
+      "et al."
+    ],
+    "description": "Evaluated 13 LLMs on 600+ moral dilemmas, uncovering reward hacking and skewed post-conventional reasoning over Kohlberg development baseline.",
+    "highlights": [
+      "Evaluated 13 LLMs on 600+ moral dilemmas, uncovering reward hacking and skewed post-conventional reasoning over Kohlberg development baseline.",
+      "Statistically identified \"moral decoupling,\" in AI justifications against ethical actions for the dilemmas, exposing vulnerabilities in enterprise AI projects."
+    ],
+    "link": "https://arxiv.org/abs/2603.21854"
+  },
+  {
+    "id": 2,
+    "title": "AMBEDKAR: Bias Elimination Framework for LLM Alignment",
+    "venue": "Under Review at ACL ARR'26",
+    "publicationDate": "2026",
+    "status": "Under Review",
+    "authors": [
+      "et al.",
+      "Aryan Kasat",
+      "et al."
+    ],
+    "description": "Co-developed an SLM-LLM speculative decoding framework for real-time constitutional alignment without model retraining.",
+    "highlights": [
+      "Co-developed an SLM-LLM speculative decoding framework for real-time constitutional alignment without model retraining.",
+      "Validated on localized sociocultural datasets, achieving up to a 26.41% absolute reduction in demographic bias compared to baselines, proving its efficacy for safe AI deployment for use cases such as judicial summarization."
+    ],
+    "link": "https://arxiv.org/abs/2509.02133"
+  }
+]

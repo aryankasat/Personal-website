@@ -10,8 +10,7 @@ async def get_projects(
     tech: Optional[str] = Query(None, description="Filter projects by technology used")
 ):
     try:
-        data = config.load_json_data("profile.json")
-        projects = data.get("projects", [])
+        projects = config.load_json_data("projects.json")
         
         # Apply filters if provided
         if category:

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Deep Learning Specialization",
+    "issuer": "DeepLearning.AI (Coursera)",
+    "date": "2024"
+  },
+  {
+    "id": 2,
+    "title": "NVIDIA DLI - Fundamentals of Deep Learning",
+    "issuer": "NVIDIA Deep Learning Institute",
+    "date": "2024"
+  },
+  {
+    "id": 3,
+    "title": "TensorFlow Developer Certificate",
+    "issuer": "Google TensorFlow",
+    "date": "2023"
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "Multi-Agent Logistics Enhancement System",
+    "description": "Built a multi-agent logistics automation workflow coordinating operations.",
+    "fullDescription": "Developed a distributed multi-agent system coordinating logistics, weather data collection, routing, and operational adjustments dynamically. Built using FastAPI and FAISS for semantic search on operational directives, integrating the Model Context Protocol (MCP) for tool execution and live Weather API updates.",
+    "technologies": [
+      "FastAPI",
+      "FAISS",
+      "RAG",
+      "MCP",
+      "Weather API",
+      "Langgraph"
+    ],
+    "category": "agents",
+    "link": "https://github.com/aryankasat/Multi-Agent-Logistics",
+    "highlights": [
+      "Coordinated 5 specialized agents under a centralized supervisor routing model",
+      "Achieved real-time operational decision-making incorporating changing atmospheric contexts",
+      "Used Model Context Protocol (MCP) to standardize external system actions"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "AMBEDKAR Alignment Framework",
+    "description": "Co-developed an SLM-LLM speculative decoding alignment framework.",
+    "fullDescription": "Co-developed the AMBEDKAR framework, an SLM-LLM speculative decoding pipeline built to eliminate cognitive bias and optimize safety alignment. Used speculative alignment principles to maintain standard response distribution while minimizing safety training compute requirements.",
+    "technologies": [
+      "PyTorch",
+      "Nvidia Nemo",
+      "Speculative Decoding",
+      "Alignment",
+      "Huggingface"
+    ],
+    "category": "alignment",
+    "link": "https://github.com/aryankasat/AMBEDKAR-Alignment",
+    "highlights": [
+      "Implemented speculative decoding for real-time alignment and safety masking",
+      "Significantly reduced bias on moral dilemmas benchmarks without harming downstream QA capabilities",
+      "Pre-trained small helper models specifically on ethical reasoning vectors"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "1B Foundational Model Pretraining Pipeline",
+    "description": "Designed and engineered an end-to-end foundational pretraining setup.",
+    "fullDescription": "Created a multi-node, distributed pretraining environment to build an educational-domain foundational model of 1B parameters. Configured model scaling settings, compiled customized tokenizers tailored for academic codebases, and handled high-throughput data loading modules.",
+    "technologies": [
+      "PyTorch",
+      "Nvidia Megatron",
+      "Nvidia Nemo",
+      "CUDA",
+      "Docker"
+    ],
+    "category": "foundational-models",
+    "link": "https://github.com/aryankasat/LLM-Pretraining",
+    "highlights": [
+      "Configured Nvidia Megatron tensor parallelisms across multi-GPU setups",
+      "Constructed a custom vocabulary tokenizer representing dense programming paradigms",
+      "Integrated real-time learning logs and evaluation loops with Weights & Biases"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Enterprise Agentic-RAG MCP Platform",
+    "description": "Upgraded enterprise naive retrieval networks to Agentic retrieval systems.",
+    "fullDescription": "Upgraded enterprise document access pathways from naive semantic search to a dynamic agentic retrieval platform. Employed router agents executing custom query compilers, vector similarity lookups in ChromaDB, and document preprocessing via Azure Document Intelligence.",
+    "technologies": [
+      "Langchain",
+      "LLaMA-Index",
+      "MCP",
+      "ChromaDB",
+      "Azure Document Intelligence"
+    ],
+    "category": "rag",
+    "link": "https://github.com/aryankasat/Agentic-RAG-MCP",
+    "highlights": [
+      "Implemented hierarchical retrieval algorithms on unstructured multi-page documents",
+      "Used Model Context Protocol (MCP) to let agents execute standard system SQL scripts on demand",
+      "Enabled dynamic evaluation metrics logging using Langsmith for response consistency"
+    ]
+  }
+]

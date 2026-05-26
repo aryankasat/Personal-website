@@ -233,22 +233,14 @@ function renderCertificationsSection(certifications) {
   const container = document.getElementById('certifications-list');
   if (!container || !certifications) return;
   
-  container.innerHTML = certifications.map(cert => {
-    const mediaHTML = cert.image 
-      ? `<div class="article-card-media">
-           <img src="${cert.image}" alt="${cert.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
-         </div>`
-      : '';
-    return `
-      <div class="cert-card" data-id="${cert.id}">
-        ${mediaHTML}
-        <div>
-          <h3>${cert.title}</h3>
-          <span class="cert-issuer">${cert.issuer}</span>
-        </div>
+  container.innerHTML = certifications.map(cert => `
+    <div class="cert-card" data-id="${cert.id}">
+      <div>
+        <h3>${cert.title}</h3>
+        <span class="cert-issuer">${cert.issuer}</span>
       </div>
-    `;
-  }).join('');
+    </div>
+  `).join('');
 
   container.querySelectorAll('.cert-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -360,7 +352,7 @@ function openCertModal(cert) {
        ">
          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.12em; margin-bottom: 10px;">Certificate of Completion</div>
          <div style="font-family: var(--font-headings); font-size: 14px; font-style: italic; margin-bottom: 12px; color: var(--text-secondary);">This professional credential is awarded to</div>
-         <h2 style="font-family: var(--font-headings); font-size: 24px; font-weight: 800; color: var(--text-primary); border-bottom: 2px solid var(--color-accent); display: inline-block; padding-bottom: 6px; margin: 0 auto 16px auto;">Aryan Kasat</h2>
+         <h2 style="font-family: var(--font-headings); font-size: 24px; font-weight: 500; color: var(--text-primary); border-bottom: 2px solid var(--color-accent); display: inline-block; padding-bottom: 6px; margin: 0 auto 16px auto;">Aryan Kasat</h2>
          
          <p style="font-size: 13px; max-width: 460px; margin: 0 auto 16px auto; line-height: 1.5; color: var(--text-secondary);">
            for successfully fulfilling all training requirements and evaluations for

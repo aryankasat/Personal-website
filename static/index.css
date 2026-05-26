@@ -641,6 +641,7 @@ a:hover {
   flex-direction: column;
   gap: 14px;
   cursor: pointer;
+  overflow: hidden;
   transition: all var(--transition-speed) ease;
 }
 

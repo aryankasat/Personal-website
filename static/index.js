@@ -147,26 +147,24 @@ function renderBlogsSection(blogs) {
   const container = document.getElementById('blogs-list');
   if (!container || !blogs) return;
   
-  container.innerHTML = blogs.map(blog => `
-    <div class="article-card" data-id="${blog.slug}" data-type="blog">
-      <div class="article-card-media">
-        <div class="article-media-placeholder">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-          </svg>
-          <span>Image / Icon Space</span>
+  container.innerHTML = blogs.map(blog => {
+    const mediaHTML = blog.image 
+      ? `<div class="article-card-media">
+           <img src="${blog.image}" alt="${blog.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+         </div>`
+      : '';
+    return `
+      <div class="article-card" data-id="${blog.slug}" data-type="blog">
+        ${mediaHTML}
+        <h3>${blog.title}</h3>
+        <p class="article-summary-text">${blog.summary}</p>
+        <div class="article-card-footer">
+          <div class="article-read-btn">Read Blog ↗</div>
+          <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
         </div>
       </div>
-      <h3>${blog.title}</h3>
-      <p class="article-summary-text">${blog.summary}</p>
-      <div class="article-card-footer">
-        <div class="article-read-btn">Read Blog ↗</div>
-        <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   container.querySelectorAll('.article-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -180,13 +178,21 @@ function renderProjectsSection(projects) {
   const container = document.getElementById('projects-list');
   if (!container || !projects) return;
   
-  container.innerHTML = projects.map(proj => `
-    <div class="proj-card" data-id="${proj.id}">
-      <h3>${proj.title}</h3>
-      <p class="proj-desc">${proj.description}</p>
-      ${proj.link ? `<a href="${proj.link}" target="_blank" rel="noopener noreferrer" class="proj-link">View Repository ↗</a>` : ''}
-    </div>
-  `).join('');
+  container.innerHTML = projects.map(proj => {
+    const mediaHTML = proj.image 
+      ? `<div class="article-card-media">
+           <img src="${proj.image}" alt="${proj.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+         </div>`
+      : '';
+    return `
+      <div class="proj-card" data-id="${proj.id}">
+        ${mediaHTML}
+        <h3>${proj.title}</h3>
+        <p class="proj-desc">${proj.description}</p>
+        ${proj.link ? `<a href="${proj.link}" target="_blank" rel="noopener noreferrer" class="proj-link">View Repository ↗</a>` : ''}
+      </div>
+    `;
+  }).join('');
 
   container.querySelectorAll('.proj-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -227,14 +233,22 @@ function renderCertificationsSection(certifications) {
   const container = document.getElementById('certifications-list');
   if (!container || !certifications) return;
   
-  container.innerHTML = certifications.map(cert => `
-    <div class="cert-card" data-id="${cert.id}">
-      <div>
-        <h3>${cert.title}</h3>
-        <span class="cert-issuer">${cert.issuer}</span>
+  container.innerHTML = certifications.map(cert => {
+    const mediaHTML = cert.image 
+      ? `<div class="article-card-media">
+           <img src="${cert.image}" alt="${cert.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+         </div>`
+      : '';
+    return `
+      <div class="cert-card" data-id="${cert.id}">
+        ${mediaHTML}
+        <div>
+          <h3>${cert.title}</h3>
+          <span class="cert-issuer">${cert.issuer}</span>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   container.querySelectorAll('.cert-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -249,25 +263,23 @@ function renderSystemDesignsSection(systemDesigns) {
   const container = document.getElementById('system-designs-list');
   if (!container || !systemDesigns) return;
   
-  container.innerHTML = systemDesigns.map(design => `
-    <div class="article-card" data-id="${design.slug}" data-type="design">
-      <div class="article-card-media">
-        <div class="article-media-placeholder">
-          <svg viewBox="0 0 24 24">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-          <span>Architecture / Diagram Space</span>
+  container.innerHTML = systemDesigns.map(design => {
+    const mediaHTML = design.image 
+      ? `<div class="article-card-media">
+           <img src="${design.image}" alt="${design.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+         </div>`
+      : '';
+    return `
+      <div class="article-card" data-id="${design.slug}" data-type="design">
+        ${mediaHTML}
+        <h3>${design.title}</h3>
+        <p class="article-summary-text">${design.summary}</p>
+        <div class="article-card-footer">
+          <div class="article-read-btn">Read Article ↗</div>
         </div>
       </div>
-      <h3>${design.title}</h3>
-      <p class="article-summary-text">${design.summary}</p>
-      <div class="article-card-footer">
-        <div class="article-read-btn">Read Article ↗</div>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   container.querySelectorAll('.article-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -332,42 +344,48 @@ function openProjectModal(project) {
 }
 
 function openCertModal(cert) {
+  const certificateVisualHTML = cert.image 
+    ? `<div style="text-align: center; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary);">
+         <img src="${cert.image}" alt="${cert.title}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+       </div>`
+    : `<!-- Digital Certificate Representation -->
+       <div class="digital-certificate" style="
+         background: radial-gradient(circle at 10% 20%, rgba(249, 248, 244, 1) 0%, rgba(244, 241, 234, 1) 90%);
+         border: 8px double #dcd6cd;
+         padding: 32px 24px;
+         position: relative;
+         text-align: center;
+         border-radius: var(--radius-md);
+         box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+       ">
+         <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.12em; margin-bottom: 10px;">Certificate of Completion</div>
+         <div style="font-family: var(--font-headings); font-size: 14px; font-style: italic; margin-bottom: 12px; color: var(--text-secondary);">This professional credential is awarded to</div>
+         <h2 style="font-family: var(--font-headings); font-size: 24px; font-weight: 800; color: var(--text-primary); border-bottom: 2px solid var(--color-accent); display: inline-block; padding-bottom: 6px; margin: 0 auto 16px auto;">Aryan Kasat</h2>
+         
+         <p style="font-size: 13px; max-width: 460px; margin: 0 auto 16px auto; line-height: 1.5; color: var(--text-secondary);">
+           for successfully fulfilling all training requirements and evaluations for
+         </p>
+         <h3 style="font-size: 18px; font-weight: 700; color: var(--color-accent); margin-bottom: 20px; line-height: 1.3;">${cert.title}</h3>
+         
+         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 16px; text-align: left;">
+           <div>
+             <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Issuer</span>
+             <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.issuer}</span>
+           </div>
+           <div style="text-align: right;">
+             <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Date Issued</span>
+             <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.date}</span>
+           </div>
+         </div>
+         
+         <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 9.5px; color: var(--text-muted);">
+           Credential ID: <span style="font-weight: 600; color: var(--text-primary);">${cert.credentialId || 'N/A'}</span>
+         </div>
+       </div>`;
+
   const formattedHTML = `
     <div class="markdown-body">
-      <!-- Digital Certificate Representation -->
-      <div class="digital-certificate" style="
-        background: radial-gradient(circle at 10% 20%, rgba(249, 248, 244, 1) 0%, rgba(244, 241, 234, 1) 90%);
-        border: 8px double #dcd6cd;
-        padding: 32px 24px;
-        position: relative;
-        text-align: center;
-        border-radius: var(--radius-md);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      ">
-        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.12em; margin-bottom: 10px;">Certificate of Completion</div>
-        <div style="font-family: var(--font-headings); font-size: 14px; font-style: italic; margin-bottom: 12px; color: var(--text-secondary);">This professional credential is awarded to</div>
-        <h2 style="font-family: var(--font-headings); font-size: 24px; font-weight: 800; color: var(--text-primary); border-bottom: 2px solid var(--color-accent); display: inline-block; padding-bottom: 6px; margin: 0 auto 16px auto;">Aryan Kasat</h2>
-        
-        <p style="font-size: 13px; max-width: 460px; margin: 0 auto 16px auto; line-height: 1.5; color: var(--text-secondary);">
-          for successfully fulfilling all training requirements and evaluations for
-        </p>
-        <h3 style="font-size: 18px; font-weight: 700; color: var(--color-accent); margin-bottom: 20px; line-height: 1.3;">${cert.title}</h3>
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 16px; text-align: left;">
-          <div>
-            <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Issuer</span>
-            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.issuer}</span>
-          </div>
-          <div style="text-align: right;">
-            <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Date Issued</span>
-            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.date}</span>
-          </div>
-        </div>
-        
-        <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 9.5px; color: var(--text-muted);">
-          Credential ID: <span style="font-weight: 600; color: var(--text-primary);">${cert.credentialId || 'N/A'}</span>
-        </div>
-      </div>
+      ${certificateVisualHTML}
       
       ${cert.verificationLink ? `
         <div style="margin-top: 24px; text-align: center;">

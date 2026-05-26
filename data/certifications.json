@@ -4,6 +4,7 @@
     "title": "Deep Learning Specialization",
     "issuer": "DeepLearning.AI (Coursera)",
     "date": "2024",
+    "image": "images/certifications/deep_learning_specialization.png",
     "description": "A comprehensive five-course specialization covering neural networks, deep learning, hyperparameter tuning, regularization, optimization, convolutional neural networks (CNNs), sequence models (RNNs/LSTMs), and structured machine learning strategy.",
     "credentialId": "COURSERA-DLS-2024",
     "verificationLink": "https://coursera.org/share/880df9629b35bc4565451c88d8b677a2"
@@ -13,6 +14,7 @@
     "title": "NVIDIA DLI - Fundamentals of Deep Learning",
     "issuer": "NVIDIA Deep Learning Institute",
     "date": "2024",
+    "image": "images/certifications/nvidia_dli.png",
     "description": "Hands-on training covering deep learning techniques for computer vision and natural language processing. Designed, trained, and deployed deep neural networks on cloud-based GPU systems using PyTorch and associated deep learning architectures.",
     "credentialId": "NVIDIA-DLI-1014856",
     "verificationLink": "https://courses.nvidia.com/certificates/ea8c772bcae24b7fa7d76a75fca9b104"
@@ -22,6 +24,7 @@
     "title": "TensorFlow Developer Certificate",
     "issuer": "Google TensorFlow",
     "date": "2023",
+    "image": "images/certifications/tensorflow_developer.png",
     "description": "Professional certification from Google validating foundational expertise in building and training machine learning models using TensorFlow, including regression, computer vision, natural language processing, and time-series forecasting.",
     "credentialId": "GOOGLE-TF-DEV-9804",
     "verificationLink": "https://www.credential.net/48451c36-7c6d-4952-ba78-0cb9ea25f190"

@@ -542,6 +542,10 @@ a:hover {
   font-size: 14.5px;
   color: var(--text-secondary);
   line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .article-read-btn {
@@ -573,7 +577,7 @@ a:hover {
   margin-top: -16px;
   margin-left: -28px;
   margin-right: -28px;
-  height: 100px;
+  height: 160px;
   background: var(--bg-primary);
   border: none;
   border-bottom: 1px solid var(--border-color);

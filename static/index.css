@@ -807,6 +807,7 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   min-height: 120px;
+  cursor: pointer;
   transition: all var(--transition-speed) ease;
 }
 

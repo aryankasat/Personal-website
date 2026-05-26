@@ -228,14 +228,21 @@ function renderCertificationsSection(certifications) {
   if (!container || !certifications) return;
   
   container.innerHTML = certifications.map(cert => `
-    <div class="cert-card">
+    <div class="cert-card" data-id="${cert.id}">
       <div>
         <h3>${cert.title}</h3>
         <span class="cert-issuer">${cert.issuer}</span>
       </div>
-      <span class="cert-date">${cert.date}</span>
     </div>
   `).join('');
+
+  container.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = parseInt(card.getAttribute('data-id'));
+      const cert = certifications.find(c => c.id === id);
+      if (cert) openCertModal(cert);
+    });
+  });
 }
 
 function renderSystemDesignsSection(systemDesigns) {
@@ -317,6 +324,65 @@ function openProjectModal(project) {
       ${project.link ? `
         <div style="margin-top:24px;">
           <a href="${project.link}" target="_blank" rel="noopener noreferrer" style="font-size:14px; font-weight:700;">View Code Repository ↗</a>
+        </div>
+      ` : ''}
+    </div>
+  `;
+  openModal(formattedHTML);
+}
+
+function openCertModal(cert) {
+  const formattedHTML = `
+    <div class="markdown-body">
+      <!-- Digital Certificate Representation -->
+      <div class="digital-certificate" style="
+        background: radial-gradient(circle at 10% 20%, rgba(249, 248, 244, 1) 0%, rgba(244, 241, 234, 1) 90%);
+        border: 8px double #dcd6cd;
+        padding: 32px 24px;
+        position: relative;
+        text-align: center;
+        border-radius: var(--radius-md);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      ">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.12em; margin-bottom: 10px;">Certificate of Completion</div>
+        <div style="font-family: var(--font-headings); font-size: 14px; font-style: italic; margin-bottom: 12px; color: var(--text-secondary);">This professional credential is awarded to</div>
+        <h2 style="font-family: var(--font-headings); font-size: 24px; font-weight: 800; color: var(--text-primary); border-bottom: 2px solid var(--color-accent); display: inline-block; padding-bottom: 6px; margin: 0 auto 16px auto;">Aryan Kasat</h2>
+        
+        <p style="font-size: 13px; max-width: 460px; margin: 0 auto 16px auto; line-height: 1.5; color: var(--text-secondary);">
+          for successfully fulfilling all training requirements and evaluations for
+        </p>
+        <h3 style="font-size: 18px; font-weight: 700; color: var(--color-accent); margin-bottom: 20px; line-height: 1.3;">${cert.title}</h3>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 16px; text-align: left;">
+          <div>
+            <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Issuer</span>
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.issuer}</span>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; font-weight: 600; letter-spacing: 0.05em;">Date Issued</span>
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-primary);">${cert.date}</span>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 9.5px; color: var(--text-muted);">
+          Credential ID: <span style="font-weight: 600; color: var(--text-primary);">${cert.credentialId || 'N/A'}</span>
+        </div>
+      </div>
+      
+      ${cert.verificationLink ? `
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="${cert.verificationLink}" target="_blank" rel="noopener noreferrer" style="
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--color-accent);
+            color: #ffffff;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+            transition: opacity var(--transition-speed) ease;
+          " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Verify Official Credential ↗</a>
         </div>
       ` : ''}
     </div>

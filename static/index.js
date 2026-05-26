@@ -258,7 +258,6 @@ function renderSystemDesignsSection(systemDesigns) {
       <p class="article-summary-text">${design.summary}</p>
       <div class="article-card-footer">
         <div class="article-read-btn">Read Article ↗</div>
-        <span class="article-meta-date">${design.readTime || '5 min read'}</span>
       </div>
     </div>
   `).join('');

@@ -481,7 +481,7 @@ a:hover {
 /* 4 & 8. Articles Cards Grid */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 24px;
 }
 
@@ -489,7 +489,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 32px;
+  padding: 16px 28px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -527,7 +527,7 @@ a:hover {
 
 .article-card h3 {
   font-family: var(--font-headings);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
   color: var(--text-primary);
@@ -547,7 +547,7 @@ a:hover {
 .article-read-btn {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: flex;
@@ -556,7 +556,7 @@ a:hover {
 }
 
 .article-card:hover .article-read-btn {
-  color: var(--text-primary);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -569,22 +569,27 @@ a:hover {
 
 /* Card Media/Icon Placeholder space */
 .article-card-media {
-  width: 100%;
-  height: 140px;
+  width: calc(100% + 56px);
+  margin-top: -16px;
+  margin-left: -28px;
+  margin-right: -28px;
+  height: 100px;
   background: var(--bg-primary);
-  border: 1px dashed var(--border-color);
-  border-radius: var(--radius-sm);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   transition: all var(--transition-speed) ease;
+  overflow: hidden;
 }
 
 .article-card:hover .article-card-media {
-  border-color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
   background: var(--color-accent-light);
-  transform: translateY(-1px);
 }
 
 .article-media-placeholder {

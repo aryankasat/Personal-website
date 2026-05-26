@@ -336,10 +336,15 @@ function openProjectModal(project) {
 }
 
 function openCertModal(cert) {
+  const isPdf = cert.image && cert.image.toLowerCase().endsWith('.pdf');
   const certificateVisualHTML = cert.image 
-    ? `<div style="text-align: center; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary);">
-         <img src="${cert.image}" alt="${cert.title}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-       </div>`
+    ? (isPdf 
+       ? `<div style="text-align: center; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary); height: 500px;">
+            <iframe src="${cert.image}" style="width: 100%; height: 100%; border: none;"></iframe>
+          </div>`
+       : `<div style="text-align: center; margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-secondary);">
+            <img src="${cert.image}" alt="${cert.title}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+          </div>`)
     : `<!-- Digital Certificate Representation -->
        <div class="digital-certificate" style="
          background: radial-gradient(circle at 10% 20%, rgba(249, 248, 244, 1) 0%, rgba(244, 241, 234, 1) 90%);

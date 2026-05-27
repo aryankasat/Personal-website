@@ -60,7 +60,7 @@ body {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   line-height: 1.8;
-  padding: 0 0 100px 0;
+  padding: 0 0 40px 0;
   position: relative;
   overflow-x: hidden;
 }

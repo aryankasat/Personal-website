@@ -16,7 +16,7 @@
   <style>
     body {
       background-color: var(--bg-secondary);
-      padding: 40px 0;
+      padding: 40px 0 20px 0;
     }
     .article-container {
       max-width: 960px;
@@ -200,7 +200,7 @@
 
         // Render HTML/Gallery/Carousel
         let imagesHTML = '';
-        const articleImages = article.images || (article.image ? [article.image] : []);
+        const articleImages = (article.images && article.images.length > 0) ? article.images : (article.image ? [article.image] : []);
         if (articleImages.length === 1) {
           imagesHTML = `
             <div class="article-main-image" style="margin-bottom: 32px; border-radius: var(--radius-md); overflow: hidden;">
@@ -350,7 +350,7 @@
       const blocks = html.split(/\n\n+/);
       const formatted = blocks.map(b => {
         const t = b.trim();
-        if (!t) return '';
+        if (!t) return null;
         if (t.startsWith('<h') || t.startsWith('<pre') || t.startsWith('<div') || t.startsWith('<li>') || t.startsWith('<img') || t === '{{gallery}}' || /^{{image:\d+}}$/.test(t)) {
           return t;
         }
@@ -358,7 +358,7 @@
           return `<ul>${t}</ul>`;
         }
         return `<p>${t}</p>`;
-      });
+      }).filter(Boolean);
       return formatted.join('\n');
     }
 

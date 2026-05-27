@@ -73,6 +73,66 @@
         font-size: 24px;
       }
     }
+    /* Carousel Styles */
+    .article-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .article-slide.active {
+      opacity: 1;
+      position: relative;
+    }
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+      font-weight: bold;
+      font-size: 18px;
+      color: #111;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .carousel-nav.prev-btn {
+      left: 16px;
+    }
+    .carousel-nav.next-btn {
+      right: 16px;
+    }
+    .carousel-nav:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .carousel-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      margin: 0 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active {
+      background: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -138,15 +198,55 @@
           }
         }
 
-        // Render HTML
+        // Render HTML/Gallery/Carousel
+        let imagesHTML = '';
+        const articleImages = article.images || (article.image ? [article.image] : []);
+        if (articleImages.length === 1) {
+          imagesHTML = `
+            <div class="article-main-image" style="margin-bottom: 32px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color);">
+              <img src="/${articleImages[0]}" alt="${article.title}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
+            </div>
+          `;
+        } else if (articleImages.length > 1) {
+          const slides = articleImages.map((img, idx) => `
+            <div class="article-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+              <img src="/${img}" alt="${article.title} - Image ${idx + 1}" style="width:100%; max-height:480px; object-fit:contain; background:#111; display:block;">
+              <div class="slide-number" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.6); color:#fff; padding:4px 10px; font-size:12px; border-radius:4px; font-family:var(--font-mono);">${idx + 1} / ${articleImages.length}</div>
+            </div>
+          `).join('');
+
+          const indicators = articleImages.map((_, idx) => `
+            <span class="carousel-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}"></span>
+          `).join('');
+
+          imagesHTML = `
+            <div class="article-carousel-container" style="position:relative; margin-bottom:32px; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-color); background:#111;">
+              <div class="article-slides" style="position:relative; height:480px; overflow:hidden;">
+                ${slides}
+              </div>
+              <button class="carousel-nav prev-btn">&lt;</button>
+              <button class="carousel-nav next-btn">&gt;</button>
+              
+              <div class="carousel-indicators" style="position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; align-items:center; justify-content:center; z-index:10;">
+                ${indicators}
+              </div>
+            </div>
+          `;
+        }
+
         contentContainer.innerHTML = `
           <div class="article-header">
             <h1 class="article-title">${article.title}</h1>
           </div>
+          ${imagesHTML}
           <div class="markdown-body">
             ${parseMarkdown(content)}
           </div>
         `;
+
+        if (articleImages.length > 1) {
+          setupCarousel();
+        }
       } catch (error) {
         console.error(error);
         contentContainer.innerHTML = '<p>Error loading article. The article may not exist or the backend is unreachable.</p>';
@@ -154,6 +254,33 @@
         if (loader) loader.classList.add('hidden');
       }
     });
+
+    function setupCarousel() {
+      const container = document.querySelector('.article-carousel-container');
+      if (!container) return;
+      const slides = container.querySelectorAll('.article-slide');
+      const dots = container.querySelectorAll('.carousel-dot');
+      const prevBtn = container.querySelector('.prev-btn');
+      const nextBtn = container.querySelector('.next-btn');
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        currentIndex = (index + slides.length) % slides.length;
+        
+        slides[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+      }
+
+      prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+      nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+      
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => showSlide(idx));
+      });
+    }
 
     // Custom Markdown-to-HTML Parser
     function parseMarkdown(md) {

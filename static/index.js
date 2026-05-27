@@ -148,9 +148,10 @@ function renderBlogsSection(blogs) {
   if (!container || !blogs) return;
   
   container.innerHTML = blogs.map(blog => {
-    const mediaHTML = blog.image 
+    const coverImage = blog.image || (blog.images && blog.images.length > 0 ? blog.images[0] : '');
+    const mediaHTML = coverImage 
       ? `<div class="article-card-media">
-           <img src="${blog.image}" alt="${blog.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+           <img src="${coverImage}" alt="${blog.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
          </div>`
       : '';
     return `
@@ -255,9 +256,10 @@ function renderSystemDesignsSection(systemDesigns) {
   if (!container || !systemDesigns) return;
   
   container.innerHTML = systemDesigns.map(design => {
-    const mediaHTML = design.image 
+    const coverImage = design.image || (design.images && design.images.length > 0 ? design.images[0] : '');
+    const mediaHTML = coverImage 
       ? `<div class="article-card-media">
-           <img src="${design.image}" alt="${design.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
+           <img src="${coverImage}" alt="${design.title}" class="article-card-img" style="width:100%; height:100%; object-fit:cover;">
          </div>`
       : '';
     return `

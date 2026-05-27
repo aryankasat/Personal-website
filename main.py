@@ -81,6 +81,9 @@ async def global_exception_handler(request: Request, exc: Exception):
 # Mount the uploads directory to serve images
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
+# Mount the images directory to serve article and layout images
+app.mount("/images", StaticFiles(directory="images"), name="images")
+
 # Mount the static files directory at the root (/) to serve the frontend
 # Note: This should be registered LAST so it doesn't intercept API routes
 app.mount("/", StaticFiles(directory="static", html=True), name="static")

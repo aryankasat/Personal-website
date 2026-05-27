@@ -157,7 +157,6 @@ function renderBlogsSection(blogs) {
       <div class="article-card" data-id="${blog.slug}" data-type="blog">
         ${mediaHTML}
         <h3>${blog.title}</h3>
-        <p class="article-summary-text">${blog.summary}</p>
         <div class="article-card-footer">
           <div class="article-read-btn">Read Blog ↗</div>
           <span class="article-meta-date">${blog.readTime || '5 min read'}</span>
@@ -265,7 +264,6 @@ function renderSystemDesignsSection(systemDesigns) {
       <div class="article-card" data-id="${design.slug}" data-type="design">
         ${mediaHTML}
         <h3>${design.title}</h3>
-        <p class="article-summary-text">${design.summary}</p>
         <div class="article-card-footer">
           <div class="article-read-btn">Read Article ↗</div>
         </div>

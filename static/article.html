@@ -203,14 +203,14 @@
         const articleImages = article.images || (article.image ? [article.image] : []);
         if (articleImages.length === 1) {
           imagesHTML = `
-            <div class="article-main-image" style="margin-bottom: 32px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color);">
-              <img src="/${articleImages[0]}" alt="${article.title}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
+            <div class="article-main-image" style="margin-bottom: 32px; border-radius: var(--radius-md); overflow: hidden;">
+              <img src="/${articleImages[0]}" alt="${article.title}" style="width: 100%; max-height: 280px; object-fit: contain; display: block;">
             </div>
           `;
         } else if (articleImages.length > 1) {
           const slides = articleImages.map((img, idx) => `
             <div class="article-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
-              <img src="/${img}" alt="${article.title} - Image ${idx + 1}" style="width:100%; max-height:480px; object-fit:contain; background:#111; display:block;">
+              <img src="/${img}" alt="${article.title} - Image ${idx + 1}" style="width:100%; max-height:280px; object-fit:contain; display:block;">
               <div class="slide-number" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.6); color:#fff; padding:4px 10px; font-size:12px; border-radius:4px; font-family:var(--font-mono);">${idx + 1} / ${articleImages.length}</div>
             </div>
           `).join('');
@@ -220,8 +220,8 @@
           `).join('');
 
           imagesHTML = `
-            <div class="article-carousel-container" style="position:relative; margin-bottom:32px; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-color); background:#111;">
-              <div class="article-slides" style="position:relative; height:480px; overflow:hidden;">
+            <div class="article-carousel-container" style="position:relative; margin-bottom:32px; border-radius:var(--radius-md); overflow:hidden;">
+              <div class="article-slides" style="position:relative; height:280px; overflow:hidden;">
                 ${slides}
               </div>
               <button class="carousel-nav prev-btn">&lt;</button>
@@ -249,8 +249,8 @@
             if (idx >= 0 && idx < articleImages.length) {
               const imgUrl = articleImages[idx];
               const imgHTML = `
-                <div class="article-inline-img-container" style="max-width: 640px; margin: 24px auto; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color);">
-                  <img src="/${imgUrl}" alt="${article.title}" style="width: 100%; max-height: 380px; object-fit: contain; background: var(--bg-secondary); display: block;">
+                <div class="article-inline-img-container" style="width: 100%; margin: 24px 0; border-radius: var(--radius-md); overflow: hidden;">
+                  <img src="/${imgUrl}" alt="${article.title}" style="width: 100%; max-height: 280px; object-fit: contain; display: block;">
                 </div>
               `;
               parsedContent = parsedContent.replaceAll(match[0], imgHTML);
@@ -341,7 +341,7 @@
       html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
       html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
       // Images: ![Alt Text](url)
-      html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div class="article-inline-img-container" style="max-width: 640px; margin: 24px auto; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color);"><img src="$2" alt="$1" style="width: 100%; max-height: 380px; object-fit: contain; background: var(--bg-secondary); display: block;"></div>');
+      html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div class="article-inline-img-container" style="width: 100%; margin: 24px 0; border-radius: var(--radius-md); overflow: hidden;"><img src="$2" alt="$1" style="width: 100%; max-height: 280px; object-fit: contain; display: block;"></div>');
       // Links
       html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
       // Lists

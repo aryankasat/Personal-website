@@ -8,20 +8,27 @@
   },
   {
     "id": 2,
-    "title": "Claude Code in Action",
+    "title": "Introduction to Model Context Protocol",
     "issuer": "Anthropic",
-    "image": "images/certifications/claude_code_in_action.png",
-    "verificationLink": "https://courses.nvidia.com/certificates/ea8c772bcae24b7fa7d76a75fca9b104"
+    "image": "",
+    "verificationLink": ""
   },
   {
     "id": 3,
+    "title": "Claude Code in Action",
+    "issuer": "Anthropic",
+    "image": "images/certifications/claude_code_in_action.jpg",
+    "verificationLink": "https://verify.skilljar.com/c/xcfb4co32n96"
+  },
+  {
+    "id": 4,
     "title": "Generative AI with Large Language Models",
     "issuer": "Deep Learning.AI (Coursera) & AWS",
     "image": "images/certifications/deeplearning_AWS.png",
     "verificationLink": "https://coursera.org/share/eafea0fc6d67f26301498449afacd86f"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Natural Language Processing with Attention Models",
     "issuer": "DeepLearning.AI (Coursera)",
     "image": "images/certifications/deeplearning.png",

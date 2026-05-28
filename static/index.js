@@ -100,7 +100,9 @@ function renderDetailsSection(overview, profile) {
     
     if (linkedinEl && profile.socials && profile.socials.linkedin) {
       linkedinEl.href = profile.socials.linkedin;
-      linkedinEl.textContent = profile.socials.linkedin;
+      const urlParts = profile.socials.linkedin.replace(/\/$/, '').split('/');
+      const username = urlParts[urlParts.length - 1];
+      linkedinEl.textContent = username || 'Profile';
       linkedinEl.title = profile.socials.linkedin;
     }
     if (emailEl) {
